@@ -1,0 +1,26 @@
+
+@function rem($px-values) {
+
+  $baseline-rem: $baseline-px / 1rem * 1 !global;
+
+  @if type-of($px-values) == "number" {
+
+    @return $px-values / $baseline-rem;
+  } @else {
+    $rem-values: ();
+    @each $value in $px-values {
+      @if type-of($value) != "number" or $value * 1px == 0px {
+
+        $rem-values: append($rem-values, $value);
+      } @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+
+    @return $rem-values;
+  }
+}
+
+@mixin rem($property, $px-values) {
+    #{$property}: rem($px-values);
+}

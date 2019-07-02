@@ -1,0 +1,11 @@
+# Dependencies
+node_modules
+
+# Src
+src/css/*
+
+
+# IDE's
+.idea
+.DS_Store
+*/.DS_Store

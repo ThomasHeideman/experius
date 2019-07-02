@@ -1,0 +1,100 @@
+$no: 0;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
+
+$radius-sm :4px;
+$radius-lg: 8px;
+
+$radius-sizes: (
+        rad-sm: $radius-sm,
+        rad-lg: $radius-lg
+);
+
+
+$spacings: (padding, margin);
+
+$sizes: (
+        no: $no,
+        sm: $sm,
+        md: $md,
+        lg: $lg
+);
+$sides: (hor, vert, all, top, bottom, left, right);
+
+@each $name, $size in $sizes {
+  @each $side in $sides {
+    @if $side == 'all' {
+      @each $spacing in $spacings {
+        .#{str-slice($spacing, 0, 1)}-#{$name} {
+          #{$spacing}: $size !important;
+        }
+      }
+    }
+    @else if $side == 'hor' {
+        @each $spacing in $spacings {
+          .#{str-slice($spacing, 0, 1)}-#{$side}-#{$name} {
+          #{$spacing}-right: $size !important;
+          #{$spacing}-left: $size !important;
+        }
+      }
+    }
+    @else if $side == 'vert' {
+        @each $spacing in $spacings {
+          .#{str-slice($spacing, 0, 1)}-#{$side}-#{$name} {
+          #{$spacing}-top: $size !important;
+          #{$spacing}-bottom: $size !important;
+        }
+      }
+    }
+    @else {
+      @each $spacing in $spacings {
+        .#{str-slice($spacing, 0, 1)}-#{$side}-#{$name} {
+          #{$spacing}-#{$side}: $size !important;
+        }
+      }
+    }
+  }
+}
+
+@each $name, $radius-size in $radius-sizes {
+  @each $side in $sides {
+    @if $side == 'all' {
+      .b-#{$name} {
+        border-radius: $radius-size !important;
+
+      }
+    }
+
+    @else if $side == 'top' {
+      .b-#{$side}-#{$name} {
+        border-top-left-radius: $radius-size !important;
+        border-top-right-radius: $radius-size !important;
+      }
+    }
+
+    @else if $side == 'right' {
+      .b-#{$side}-#{$name} {
+        border-top-right-radius: $radius-size !important;
+        border-bottom-right-radius: $radius-size !important;
+      }
+    }
+    @else if $side == 'bottom' {
+      .b-#{$side}-#{$name} {
+        border-bottom-left-radius: $radius-size !important;
+        border-bottom-right-radius: $radius-size !important;
+
+      }
+    }
+    @else if $side == 'left' {
+      .b-#{$side}-#{$name} {
+        border-top-left-radius: $radius-size !important;
+        border-bottom-left-radius: $radius-size !important;
+      }
+    }
+  }
+}
+
+
+
+

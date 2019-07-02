@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+  <title data-name="page-title"></title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/all.css">
+</head>
+<body>
+<header class="header component-container component-container--header">
+  <div class="flex-container m-bottom-lg background-dark-grey">
+    <div class="row">
+      <div class="column column--75 column--50-md column--33-lg">
+        <div class="logo typ-h2 color-white">Thomas Heideman</div>
+      </div>
+      <div class="basket-button-container column column--25 column--50-md column--33-lg">
+        <button class="button button--primary basket" id="basket">
+          <span class="icon icon-shopping-basket"></span>
+          <span class="typ-h3 m-right-md">mijn mandje</span>
+          <span id="itemsBasket" class="hide">0</span>
+        </button>
+      </div>
+      <nav>
+      </nav>
+    </div>
+  </div>
+  </div>
+</header>
+<section class="component-container basket-itemlist-container">
+  <div class="flex-container">
+    <div class="row">
+      <div class="basket-itemlist b-bottom-rad-sm column column--100 shadow">
+        <ul data-name="basket-list" class="typ-small">
+          <li class="empty-basket">er zijn nog geen producten in je mandje</li>
+        </ul>
+        <div class="basket-controls">
+          <button class="button button--secondary button--basket clear-all inactive m-right-md" id="clear-all"><span class="icon icon-shopping-basket"></span>leeg mandje</button>
+          <button class="button button--secondary button--basket submit inactive"><span class="icon icon-check"></span>afrekenen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="purchase-container">
+  <div class="purchase-container--inner b-rad-sm background-white shadow">
+    <p class="purchase-msg typ-h3">Helaas is het momenteel niet mogelijk om af te rekenen</p>
+    <button class="button button--primary button--purchase p-right-md"><span class="icon icon-chevron-left"></span>Terug</button>
+  </div>
+</div>
+<section class="component-container">
+  <div class="flex-container">
+    <div class="row">
+      <div class="column column--100 column--50-md column--66-lg background-light-grey shadow">
+        <h1 data-name="product-name" class="typ-h3 color-white background-dark-grey m-no p-vert-sm p-hor-md b-top-rad-sm"></h1>
+        <div class="image-container p-md b-bottom-rad-sm">
+          <div class="product-slider">
+            <a href="#" class="next-slide"><span class="icon-chevron-right"></span></a>
+            <a href="#" class="prev-slide"><span class="icon-chevron-left"></span></a>
+            <ul data-name="product-images"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="column column--100 column--50-md column--33-lg background-light-grey shadow">
+        <h3 class="typ-h3 color-white background-dark-grey m-no p-vert-sm p-hor-md b-top-rad-sm">Productdetails</h3>
+        <div class="detail-container p-md b-bottom-rad-sm">
+          <ul class="product-details m-top-no">
+            <li><span>Categorie</span><span data-name="product-type"></span></li>
+            <li><span>Merk</span><span data-name="product-brand"></span></li>
+            <li><span>Productnaam</span><span data-name="product-name"></span></li>
+            <li><span>productnummer</span><span data-name="product-sku"></span></li>
+          </ul>
+          <div class="product-price-details m-vert-md">
+            <div class="price"><span>Prijs</span><span data-name="product-price"></span></div>
+            <div class="special-price hide"><span>Speciale prijs</span><span data-name="product-special"></span></div>
+          </div>
+          <div class="product-stock-details m-vert-md">
+            <div><span>Voorraadstatus</span><span data-name="product-status"></span></div>
+            <div><span>Hoeveelheid</span><span data-name="product-qty"></span></div>
+          </div>
+          <button class="add-to-basket add-to-basket--main button--primary b-rad-sm" data-name="product-button"><span class="icon icon-shopping-basket"></span>voeg toe aan mijn mandje</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="component-container">
+  <div class="flex-container">
+    <div class="row">
+      <div class="column column--100 column--100 product-desc-container background-light-grey shadow">
+        <h3 class="typ-h3 color-white background-dark-grey m-no p-vert-sm p-hor-md b-top-rad-sm">Productomschrijving</h3>
+        <div class="product-desc p-hor-sm p-md b-bottom-rad-sm" data-name="product-desc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="component-container related-prod-container hide">
+  <div class="flex-container">
+    <div class="row">
+      <div class="column column--100 column--100 background-light-grey shadow">
+        <h3 class="typ-h3 color-white background-dark-grey m-no p-hor-md p-vert-sm b-top-rad-sm">gerelateerde producten</h3>
+        <div class="row related-products p-hor-sm p-md b-bottom-rad-sm" data-name="related-prod">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="component-container component-container--footer background-dark-grey p-vert-md">
+  <div class="flex-container">
+    <div class="row">
+      <div class="column column--100 column--50-md column--33-lg">
+        <p class="typ-h3 color-white m-vert-md">Thomas Heideman</p>
+        <p class="m-vert-sm"><a class="contact contact--email color-white" href="mailto:thomas@thomasheideman.nl"><span class="icon icon-envelope-open"></span>thomas@thomasheideman.nl</a></p>
+        <p class="m-vert-sm"><a class="contact contact--phone color-white" href="tel:+31642727696"><span class="icon icon-phone"></span>+31 6 427 27 696</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

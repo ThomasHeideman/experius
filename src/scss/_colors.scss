@@ -1,0 +1,52 @@
+// A variable that sets all colors
+
+// @example scss
+// div { background: color(red-10); }
+
+$color-white: #FFF;
+$color-red-light: #F8D0D1;
+$color-red-medium: #F1A2A5;
+$color-red-dark: #eb5961;
+$color-yellow-light: #FDE5B9;
+$color-yellow-medium: #fdcb6c;
+$color-yellow-dark: #C9A157;
+
+$color-green-light: #6ad59d;
+$color-green-medium: #4fdc98;
+$color-green-dark: #43c67e;
+$color-grey-light: #f1f2f2;
+$color-grey-medium-light: #bbbebf;
+$color-grey-medium: #888a8b;
+$color-grey-dark: #5b6061;
+
+
+
+$properties: (background, color);
+$colors: (
+        white: $color-white,
+        light-red: $color-red-light,
+        medium-red: $color-red-medium,
+        dark-red: $color-red-dark,
+        light-yellow: $color-yellow-light,
+        medium-yellow: $color-yellow-medium,
+        dark-yellow: $color-yellow-dark,
+
+        light-green: $color-green-light,
+        medium-green: $color-green-medium,
+        dark-green: $color-green-dark,
+        light-grey: $color-grey-light,
+        mediumlight-grey:$color-grey-medium-light,
+ l       medium-grey: $color-grey-medium,
+        dark-grey: $color-grey-dark
+);
+
+
+  @each $name, $color in $colors {
+    @each $property in $properties {
+      .#{$property}-#{$name} {
+        #{$property}: $color;
+      }
+    }
+  }
+
+

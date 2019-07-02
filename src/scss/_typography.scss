@@ -1,0 +1,130 @@
+@font-face {
+  font-family: 'SpringsteelSerif-Heavy';
+  src: url('/fonts/SpringsteelSerif-Heavy-webfont.woff2') format('woff2'),
+  url('/fonts/SpringsteelSerif-Heavy-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+$baseline-px: 16px;
+
+$baseline-rem: $baseline-px / 1rem * 1;
+
+$baseline-em: 16px / 1em * 1;
+
+/// Default base font size in pixel <br />
+/// The value should be the same as the font-size value for the html element
+///
+/// @group Baseline
+///
+$baseline-px: 16px;
+
+/// Default base font size in rem
+///
+/// @group Baseline
+///
+/// @require {Number} $baseline-px
+///
+$baseline-rem: $baseline-px / 1rem * 1;
+
+/// Default base font size in em
+///
+/// @group Baseline
+///
+/// @require {Number} $baseline-px
+///
+$baseline-em: 16px / 1em * 1;
+
+/**
+ * Font definitions
+ */
+
+@mixin typ-h1 {
+  font-family: 'SpringsteelSerif-Heavy', serif;
+  font-size: rem(22px);
+  line-height: rem(32px);
+  font-weight: normal;
+
+   @include breakpoint(lg)  {
+    font-size: rem(32px);
+    line-height: rem(42px);
+  }
+}
+
+@mixin typ-h2 {
+  font-family: 'SpringsteelSerif-Heavy', serif;
+  font-size: rem(20px);
+  line-height: rem(24px);
+  font-weight: normal;
+
+   @include breakpoint(lg)  {
+    font-size: rem(24px);
+    line-height: rem(32px);
+  }
+}
+
+@mixin typ-h3 {
+  font-family: 'SpringsteelSerif-Heavy', serif;
+  font-size: rem(18px);
+  line-height: rem(24px);
+  font-weight: normal;
+}
+@mixin typ-h4 {
+  font-family: 'SpringsteelSerif-Heavy', serif;
+  font-size: rem(16px);
+  line-height: rem(24px);
+  font-weight: normal;
+}
+@mixin typ-h5 {
+  font-family: "PT Sans", sans-serif;
+  font-size: rem(14px);
+  line-height: rem(24px);
+  font-weight: 700;
+}
+@mixin typ-p {
+  font-family: "PT Sans", sans-serif;
+  font-size: rem(16px);
+  line-height: rem(24px);
+}
+@mixin typ-small {
+  font-family: "PT Sans", sans-serif;
+  font-size: rem(14px);
+}
+
+
+html {
+  font-size: percentage($baseline-px / 16px);
+}
+body {
+  font: rem($baseline-px) "PT Sans", sans-serif;
+  word-wrap: break-word; // legacy name of overflow-wrap
+  overflow-wrap: break-word;
+  line-height: 1.5rem;
+  overflow-x: hidden;
+}
+
+.typ-h1 {
+  @include typ-h1;
+}
+
+.typ-h2 {
+  @include typ-h2;
+}
+
+.typ-h3 {
+  @include typ-h3;
+}
+.typ-h4 {
+  @include typ-h4;
+}
+.typ-h5 {
+  @include typ-h5;
+}
+
+.typ-p {
+  @include typ-p;
+}
+.typ-small {
+  @include typ-small;
+}
+

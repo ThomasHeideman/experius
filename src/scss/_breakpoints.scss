@@ -1,0 +1,44 @@
+
+@mixin breakpoint($point) {
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+  @if $point == sm {
+    @media (min-width: #{$sm}) {
+      @content;
+    }
+  }
+  @if $point == sm-range {
+    @media (min-width: #{$sm}) and (max-width: #{$md}) {
+      @content;
+    }
+  }
+
+  @if $point == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  }
+  @if $point == md-range {
+    @media (min-width: #{$md}) and (max-width: #{$lg}) {
+      @content;
+    }
+  }
+
+  @if $point == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+  @if $point == lg-range {
+    @media (min-width: #{$lg}) and (max-width: #{$xl}) {
+      @content;
+    }
+  }
+  @elseif $point == xl {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}

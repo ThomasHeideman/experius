@@ -1,0 +1,113 @@
+.component-container{
+    margin: 1rem 0;
+  &--header {
+    margin: 0 0 1rem;
+  }
+  &--footer {
+    margin: 1rem 0 0;
+  }
+  @include breakpoint(md) {
+    margin: 2rem 0;
+    &--header {
+      margin: 0 0 2rem;
+    }
+    &--footer {
+      margin: 2rem 0 0;
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+  .row {
+    flex: 1 1 100%;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0 .5rem;
+    @include breakpoint(md) {
+      padding: 0 1rem;  
+    }
+    @include breakpoint(lg) {
+      max-width: 992px;
+    }
+    @include breakpoint(xl) {
+      max-width: 1200px;
+    }
+
+
+    $col_100: 100%;
+    $col_75: 75%;
+    $col_66: 66.66%;
+    $col_50: 50%;
+    $col_33: 33.33%;
+    $col_25: 25%;
+
+    $gutter: .5rem;
+
+    $columnwidths: (
+            100: $col_100,
+            75: $col_75,
+            66: $col_66,
+            50: $col_50,
+            33: $col_33,
+            25: $col_25
+    );
+    $breakpoints: (
+          "": "",
+          "sm": 576px,
+          "md": 768px,
+          "lg": 992px,
+          "xl": 1200px,
+  );
+    @each $breakpointName, $breakpoint in $breakpoints {
+      @each $colName, $columnwidth in $columnwidths {
+        $selector: #{$colName};
+        @if $breakpointName != "" {
+          $selector: #{$colName}-#{$breakpointName};
+        }
+
+        @if $breakpointName != "" {
+          @media (min-width: $breakpoint) {
+          .column--#{$selector} {
+            margin-left: $gutter;
+            margin-right: $gutter;
+            flex: 0 1 calc(#{$columnwidth} - 2 * #{$gutter});
+            }
+          }
+        }
+        @else {
+          .column--#{$selector} {
+          margin-left: $gutter;
+          margin-right: $gutter;
+          flex: 0 1 calc(#{$columnwidth} - 2 * #{$gutter});
+          }
+        }
+      }
+    }
+    .column {
+      &:not(column--100) {
+        &:not(:last-child) {
+          margin-bottom: 1rem;
+          @include breakpoint(md) {
+            margin-bottom: 0rem;
+          }
+        }
+      }
+    }
+  }
+
+.component-container{
+  &--header {
+    .column {
+      &:not(column--100) {
+        &:not(:last-child) {
+          margin-bottom: 0;}
+      }
+    }
+  }
+}
+
